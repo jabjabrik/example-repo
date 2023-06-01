@@ -15,9 +15,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [14]
     env:
-      NODE_ENV: "production"
+      NODE_ENV: "development"
+
 
     steps:
       - name: Checkout 🛎
@@ -52,8 +53,8 @@ jobs:
         with:
           pattern: '[:\.]+'
           string: "${{ steps.current-time.outputs.time }}"
-          replace-with: "-"
-          flags: "g"
+          replace-with: '-'
+          flags: 'g'
 
       - name: Beanstalk Deploy for app
         uses: einaregilsson/beanstalk-deploy@v16
